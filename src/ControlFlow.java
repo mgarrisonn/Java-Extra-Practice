@@ -79,6 +79,35 @@ public class ControlFlow {
         System.out.println(".......................................");
 
 
+
+//        Convert given number grades into letter grades
+        System.out.println("Would you like to see your grades?");
+        String confirm = scanner.next();
+        while (confirm.equalsIgnoreCase("Yes")) {
+            System.out.println("What was your numeric grade?");
+            int grade = scanner.nextInt();
+            char letterGrade;
+            if(grade > 100) {
+                System.out.println("Excellent work!");
+                continue;
+            } else if (grade >= 99) {
+                letterGrade = 'A';
+            } else if (grade >= 90) {
+                letterGrade = 'A';
+            } else if (grade >= 80) {
+                letterGrade = 'B';
+            } else if (grade >= 70) {
+                letterGrade = 'C';
+            } else if (grade >= 60) {
+                letterGrade = 'D';
+            } else {
+                letterGrade = 'F';
+            }
+            System.out.printf("You received an %c.%n", letterGrade);
+            System.out.println("Would you like to check your letter grades?");
+            confirm = scanner.next();
+        }
+
     }
 
 }
