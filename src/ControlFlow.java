@@ -64,6 +64,21 @@ public class ControlFlow {
         }
 
 
+//        Display a table of powers.
+        System.out.println("Please choose a number");
+        int number = scanner.nextInt();
+        System.out.printf("%n");
+        System.out.println("Here is your table of powers");
+        System.out.printf("%n");
+        System.out.println(".......................................");
+        System.out.println("| Number      | Squared      | Cubed");
+        System.out.println(".......................................");
+        for (int o = 1; o <= number; o++) {
+            System.out.printf("| %d           | %d            | %d%n" , o , o*o, o*o*o);
+        }
+        System.out.println(".......................................");
+
+
     }
 
 }
