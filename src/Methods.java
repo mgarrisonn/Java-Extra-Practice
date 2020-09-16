@@ -3,11 +3,14 @@ import java.util.Scanner;
 public class Methods {
 
     public static void main(String[] args) {
+        //Math
         math();
 
+        //Verify Integer
         int userInt = getInteger(1,10);
         System.out.println(userInt);
 
+        //Factorial
         int number;
         String response;
         long fact = 1;
@@ -26,6 +29,13 @@ public class Methods {
                 System.out.println(i + " = " + factorialRecursion(number));
             }
         }
+
+        //Dice Roll
+        do {
+            System.out.println("Roll a pair of Dice?");
+            rollDice(getInteger(1, 10));
+            System.out.println("Would you like to continue? (yes/no)");
+        } while (scanner.next().equalsIgnoreCase("Yes"));
 
     }
 
@@ -79,6 +89,12 @@ public class Methods {
             return 1;
         }
         return num * factorialRecursion(num - 1);
+    }
+
+    public static void rollDice(int sides) {
+        int firstDice = (int)(Math.random() * sides) + 1;
+        int secondDice = (int)(Math.random() * sides) + 1;
+        System.out.printf("First Roll: %d | Second Roll: %d%n", firstDice, secondDice);
     }
 
 
