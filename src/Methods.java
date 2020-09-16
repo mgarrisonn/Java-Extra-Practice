@@ -1,6 +1,8 @@
+import java.awt.image.BandedSampleModel;
 import java.util.Scanner;
 
 public class Methods {
+    static Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
     public static void main(String[] args) {
         //Math
@@ -37,10 +39,20 @@ public class Methods {
             System.out.println("Would you like to continue? (yes/no)");
         } while (scanner.next().equalsIgnoreCase("Yes"));
 
+
+        //High/Low Guessing Game
+        System.out.println("High/Low Guessing Game");
+        do {
+            int input = (int)(Math.random() * 100) + 1;
+            System.out.println("Guess a number 1 and 100");
+            guessingGame(getInteger(1, 100), input);
+            System.out.println("Would you like another try? (yes/no)");
+        } while (scanner.next().equalsIgnoreCase("Yes"));
+
     }
 
-    static Scanner scanner = new Scanner(System.in).useDelimiter("\n");
 
+    //Math
     public static double add(double number1, double number2) {
         return number1 + number2;
     }
@@ -61,6 +73,7 @@ public class Methods {
         return number1 % number2;
     }
 
+    //Math
     public static void math() {
         double number1 = scanner.nextDouble();
         double number2 = scanner.nextDouble();
@@ -72,6 +85,7 @@ public class Methods {
     }
 
 
+    //Verify Integer
     public static int getInteger(int min, int max) {
         System.out.printf("Please enter a number %d and %d: ", min, max);
         int userInput = scanner.nextInt();
@@ -83,7 +97,7 @@ public class Methods {
         return userInput;
     }
 
-
+    //Factorial
     public static long factorialRecursion(int num) {
         if (num <= 1) {
             return 1;
@@ -91,10 +105,24 @@ public class Methods {
         return num * factorialRecursion(num - 1);
     }
 
+    //Dice game
     public static void rollDice(int sides) {
         int firstDice = (int)(Math.random() * sides) + 1;
         int secondDice = (int)(Math.random() * sides) + 1;
         System.out.printf("First Roll: %d | Second Roll: %d%n", firstDice, secondDice);
+    }
+
+    //Guessing game
+    public static void guessingGame(int guess, int input) {
+        if (guess == input) {
+            System.out.println("Correct!");
+        } else if (guess < input) {
+            System.out.println("Higher");
+            guessingGame(getInteger(1, 100), input);
+        } else {
+            System.out.println("Lower");
+            guessingGame(getInteger(1, 100), input);
+        }
     }
 
 
