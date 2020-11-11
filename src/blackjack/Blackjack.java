@@ -92,7 +92,7 @@ public class Blackjack {
             }
 
             playerDeck.moveAllToDeck(playingDeck);
-            dealerDeck.moveAllToDeck(playerDeck);
+            dealerDeck.moveAllToDeck(playingDeck);
             System.out.println("End of hand.");
 
         }
