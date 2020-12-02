@@ -39,13 +39,33 @@ public class Main {
 
                 String input = sc.nextLine();
                 if(input.equals("1")){
+                    int damageDealt = random.nextInt(attackDamage);
+                    int damageTaken = random.nextInt(enemyAttackDamage);
 
-                }else if(input.equals("2")){
+                    enemyHealth -= damageDealt;
+                    health -= damageTaken;
 
-                }else if(input.equals("3")){
+                    System.out.println("\t> You strike the " + enemy + " for" + damageDealt + " damage");
+                    System.out.println("\t> you receive " + damageTaken + " in retaliation!");
 
-                }else {
+                    if (health < 1) {
+                        System.out.println("\t> You have taken too much damage, you are too weak to go on!");
+                        break;
+                    }
 
+                } else if(input.equals("2")){
+                    if(numHealthPotions > 0){
+                        health += healthPotionHealAmount;
+                        numHealthPotions --;
+                        System.out.println("\t< You drink a health potion, healing yourself for " + healthPotionHealAmount + "." + "\n\t> You now have " + health + " HP" + "\n\t< You have " + numHealthPotions + " health potions left.\n");
+                    } else {
+                        System.out.println("\t> You have no health potions left. Defeat enemies for a chance to get one.");
+                    }
+                } else if(input.equals("3")){
+                    System.out.println("\tYou run away from the " + enemy + "!");
+                    continue GAME;
+                } else {
+                    System.out.println("\tInvalid command!");
                 }
             }
 
