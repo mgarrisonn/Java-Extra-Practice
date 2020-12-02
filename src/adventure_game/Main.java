@@ -68,8 +68,38 @@ public class Main {
                     System.out.println("\tInvalid command!");
                 }
             }
+            if (health < 1){
+                System.out.println("You limp out of th dungeon, weak from battle");
+                break;
+            }
+            System.out.println("--------------------------------------------------------");
+            System.out.println(" # " + enemy + " was defeated! # ");
+            System.out.println(" # You have " + health + " HP left #");
+            if(random.nextInt(100) < healthPotionDropChance){
+                numHealthPotions ++;
+                System.out.println(" # The " + enemy + " dropped a health potion #");
+                System.out.println(" # You have " + numHealthPotions + " health potion(s). #");
+            }
+            System.out.println("--------------------------------------------------------");
+            System.out.println("What would you like to do?");
+            System.out.println("1. Continue fighting");
+            System.out.println("2. Exit dungeon");
 
+            String input = sc.nextLine();
+
+            while (!input.equals("1") && !input.equals("2")){
+                System.out.println("Invalid command!");
+                input = sc.nextLine();
+            }
+            if(input.equals("1")){
+                System.out.println("You continue on you adventure");
+            } else if(input.equals("2")){
+                System.out.println("You exit the dungeon, successful from your adventures!");
+                break;
+            }
         }
-
+        System.out.println("########################");
+        System.out.println("# Thanks for Playing! #");
+        System.out.println("########################");
     }
 }
